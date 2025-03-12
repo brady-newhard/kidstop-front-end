@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 
 import { UserProvider } from './contexts/UserContext.jsx';
+import { GoogleMapsProvider } from './contexts/GoogleMapsContext.jsx';
 
 import App from './App.jsx';
 
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       {/* Wrap the UserProvider around the App */}
       <UserProvider>
-        <App />
+        <GoogleMapsProvider>
+          <App />
+        </GoogleMapsProvider>
       </UserProvider>
     </BrowserRouter>
   </StrictMode>,

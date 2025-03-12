@@ -9,12 +9,6 @@ const Dashboard = () => {
   const [ users, setUsers ] = useState([]);
 
   useEffect(() => {
-    // Add detailed debugging logs
-    console.log('Full user object:', user);
-    console.log('User properties:', Object.keys(user || {}));
-    console.log('firstName value:', user?.firstName);
-    console.log('User payload from token:', JSON.parse(atob(localStorage.getItem('token').split('.')[1])).payload);
-    
     const fetchUsers = async () => {
       try {
         const fetchedUsers = await userService.index();
