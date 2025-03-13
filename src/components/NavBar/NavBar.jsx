@@ -17,7 +17,9 @@ const NavBar = () => {
         <ul>
           <li>Welcome, {user.username}</li>
           <li><Link to='/'>Dashboard</Link></li>
-          <li><Link to='/playgrounds'>Find Playgrounds</Link></li>
+          <li><Link to='/playgroundfinder'>Find KidStops</Link></li>
+          <li><Link to='/playgrounds'>Favorite KidStops</Link></li>
+          <li><Link to='/playgrounds/new'>Add a KidStop</Link></li>
           <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
         </ul>
       ) : (
