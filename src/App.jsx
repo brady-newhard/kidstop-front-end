@@ -40,6 +40,11 @@ const App = () => {
   setPlaygrounds(playgrounds.filter(playground => playground._id !== playgroundId));
   navigate('/playgrounds');
   }
+  const handleUpdatePlayground = async (playgroundId, playgroundFormData) => {
+    const updatedPlayground = await playgroundService.update(playgroundId, playgroundFormData);
+    setPlaygrounds(playgrounds.map(playground => playground._id === playgroundId ? updatedPlayground : playground));
+    navigate(`/playgrounds/${playgroundId}`);
+  };
 
   return (
     <>
@@ -51,9 +56,13 @@ const App = () => {
             {/* Protected routes (available only to signed-in users) */}
             <Route path='/playgroundfinder' element={<PlaygroundsPage />} />
             <Route path='/playgrounds' element={<PlaygroundList playgrounds={playgrounds} />} />
-            <Route path='/playgrounds/:id' element={<PlaygroundDetails />} />
             <Route path='/playgrounds/new' element={<PlaygroundForm handleAddPlayground={handleAddPlayground} />} />
-            <Route path='/playgrounds/:playgroundsId' element={<PlaygroundDetails handleDeletePlayground={handleDeletePlayground} />} />
+            <Route path='/playgrounds/:playgroundId/edit' element={<PlaygroundForm handleUpdatePlayground={handleUpdatePlayground} />} />
+            <Route path='/playgrounds/:playgroundId' element={
+              <PlaygroundDetails handleDeletePlayground={handleDeletePlayground} />
+            } />
+            <Route path='/playgrounds/:playgroundId/comments' element={<CommentForm />} />
+            <Route path='/playgrounds/:playgroundId/comments/:commentId/edit' element={<CommentForm />} />
           </>
         ) : (
           <>

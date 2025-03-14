@@ -1,15 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import * as playgroundService from '../../services/playgroundService';
 
-const commentForm = (props) => {
+const CommentForm = ({ handleAddComment }) => {
   const [formData, setFormData] = useState({ text: '' });
+  const { playgroundId, commentId } = useParams();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchComment = async () => {
+      const playgroundData = await playgroundService.show(playgroundId);
+      setFormData(playgroundData.comments.find(comment => comment._id === commentId));
+    };
+    if (playgroundId && commentId) fetchComment();
+  }, [playgroundId, commentId]);
+  
+  
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleAddcomment(formData);
+    if (playgroundId && commentId) {
+      playgroundService.updateComment(playgroundId, commentId, formData);
+      navigate(`/playgrounds/${playgroundId}`);
+    } else {
+      handleAddComment(formData);
+    }
     setFormData({ text: '' });
   };
 
@@ -24,10 +42,10 @@ const commentForm = (props) => {
         value={formData.text}
         onChange={handleChange}
       />
-      <button type='submit'>SUBMIT COMMENT</button>
+      <button type='submit'>{commentId ? 'Update Comment' : 'Submit Comment'}</button>
     </form>
   );
 };
 
-export default commentForm;
+export default CommentForm;
 

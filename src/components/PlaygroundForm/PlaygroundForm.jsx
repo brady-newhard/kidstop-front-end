@@ -6,7 +6,7 @@ import * as playgroundService from '../../services/playgroundService';
 
 // import { amenityOptions } from '../SearchControls/AmenitySelect';
 
-const PlaygroundForm = ({ handleAddPlayground }) => {
+const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
   const { playgroundId } = useParams();
   const [formData, setFormData] = useState({
     name: '',
@@ -39,7 +39,7 @@ const PlaygroundForm = ({ handleAddPlayground }) => {
 
   return (
     <main className="container">
-      <h1>Add a New KidStop</h1>
+      <h1>{playgroundId ? 'Edit Playground' : 'New Playground'}</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor='name-input'>Name</label>
@@ -83,7 +83,7 @@ const PlaygroundForm = ({ handleAddPlayground }) => {
           </select>
         </div>
 
-        <button type='submit'>Add KidStop</button>
+        <button type='submit'>{playgroundId ? 'Update' : 'Add'} KidStop</button>
       </form>
     </main>
   );
