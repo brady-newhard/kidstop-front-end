@@ -1,10 +1,13 @@
 import { useParams } from 'react-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import * as playgroundService from '../../services/playgroundService';
+import CommentForm from '../CommentForm/CommentForm';
+import { UserContext } from '../../contexts/UserContext';
 
-const PlaygroundDetails = () => {
+const PlaygroundDetails = (props) => {
     const { playgroundId } = useParams();
     const [playground, setPlayground] = useState(null);
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         const fetchPlayground = async () => {
@@ -14,30 +17,50 @@ const PlaygroundDetails = () => {
         fetchPlayground();
     }, [playgroundId]);
 
-    console.log(playground, 'playground state');
+    const handleAddComment = async (commentFormData) => {
+        console.log('commentFormData', commentFormData);
+        const newComment = await playgroundService.createComment(playgroundId, commentFormData);
+        setPlayground({ ...playground, comments: [...playground.comments, newComment] });
+    };
     if (!playground) return <div>Loading...</div>;
     return (
         <main>
             <section>
+
                 <header>
                     <h1>{playground.name}</h1>
-
-                    {/* Location */}
-                    <div className="location">
-                        <h2>Location</h2>
-                        <p>Coordinates: {playground.location.coordinates.join(', ')}</p>
+                    <div>
+                        <p>
+                            {`${playground.author.username} posted on
+              ${new Date(playground.createdAt).toLocaleDateString()}`}
+                        </p>
+                        {playground.author._id === user._id && (
+                            <>
+                                {/* <Link to={`/playgrounds/${playgroundId}/edit`}>Edit</Link> */}
+                                <button onClick={() => props.handleDeletePlayground(playgroundId)}>
+                                    Delete
+                                </button>
+                            </>
+                        )}
+                        {/* Don't forget to close it */}
                     </div>
 
-                    {/* Description */}
-                    {playground.description && (
-                        <div className="description">
+                </header>
+                <p>{playground.description}</p>
+                <p>{playground.rating}</p>
+            </section>
+
+
+            {/* Description */}
+            {/* {playground.description && (
+                        <div>
                             <h2>Description</h2>
                             <p>{playground.description}</p>
                         </div>
-                    )}
+                    )} */}
 
-                    {/* Amenities */}
-                    {playground.amenities && playground.amenities.length > 0 && (
+            {/* Amenities */}
+            {/* {playground.amenities && playground.amenities.length > 0 && (
                         <div className="amenities">
                             <h2>Amenities</h2>
                             <ul>
@@ -46,23 +69,29 @@ const PlaygroundDetails = () => {
                                 ))}
                             </ul>
                         </div>
-                    )}
-                </header>
-                <p>{playground.reviews}</p>
-            </section>
+                    )} */}
+            {/* </header>
+                <p>{playground.comments}</p>
+            </section> */}
             <section>
-                <h2>Reviews</h2>
-                {!hoot.comments.length && <p>There are no comments.</p>}
+                <h2>comments</h2>
+                <CommentForm handleAddComment={handleAddComment} />
+                {!playground.comments.length && <p>There are no comments.</p>}
 
-                {playground.reviews.map((review) => (
-                    <article key={review._id}>
+                {playground.comments.map((comment) => (
+                    <article key={comment._id}>
                         <header>
                             <p>
-                                {`${review.author.username} posted on
-                                ${new Date(review.createdAt).toLocaleDateString()}`}
+                                {`${comment.author.username} posted on
+                                ${new Date(comment.createdAt).toLocaleDateString()}`}
                             </p>
+                            {comment.author._id === user._id && (
+                                <>
+                                    <button onClick={() => props.handleDeletePlayground(playground._id)}>Delete</button>
+                                </>
+                            )}
                         </header>
-                        <p>{review.text}</p>
+                        {/* <p>{comment.text}</p> */}
                     </article>
                 ))}
 

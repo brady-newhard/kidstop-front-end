@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import NavBar from './components/NavBar/NavBar';
 import SignUpForm from './components/SignUpForm/SignUpForm';
@@ -9,6 +9,9 @@ import Dashboard from './components/Dashboard/Dashboard';
 import PlaygroundsPage from './components/PlaygroundSearch/PlaygroundSearch';
 import PlaygroundList from './components/PlaygroundList/PlaygroundList';
 import PlaygroundDetails from './components/PlaygroundDetails/PlaygroundDetails';
+import PlaygroundForm from './components/PlaygroundForm/PlaygroundForm';
+import CommentForm from './components/CommentForm/CommentForm';
+
 import * as playgroundService from './services/playgroundService';
 
 import { UserContext } from './contexts/UserContext';
@@ -16,7 +19,8 @@ import { UserContext } from './contexts/UserContext';
 const App = () => {
   const { user } = useContext(UserContext);
   const [playgrounds, setPlaygrounds] = useState([]);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const fetchAllPlaygrounds = async () => {
       const playgroundsData = await playgroundService.index();
@@ -25,6 +29,18 @@ const App = () => {
     if (user) fetchAllPlaygrounds();
   }, [user]);
   
+  const handleAddPlayground = async (playgroundFormData) => {
+    const newPlayground = await playgroundService.create(playgroundFormData);
+    setPlaygrounds([newPlayground, ...playgrounds]);
+    navigate('/playgrounds');
+  };
+
+  const handleDeletePlayground = async (playgroundId) => {
+  const deletedPlayground = await playgroundService.deletePlayground(playgroundId);
+  setPlaygrounds(playgrounds.filter(playground => playground._id !== playgroundId));
+  navigate('/playgrounds');
+  }
+
   return (
     <>
       <NavBar/>
@@ -36,7 +52,8 @@ const App = () => {
             <Route path='/playgroundfinder' element={<PlaygroundsPage />} />
             <Route path='/playgrounds' element={<PlaygroundList playgrounds={playgrounds} />} />
             <Route path='/playgrounds/:id' element={<PlaygroundDetails />} />
-            <Route path='/playgrounds/new' element={<h1>New KidStop</h1>} />
+            <Route path='/playgrounds/new' element={<PlaygroundForm handleAddPlayground={handleAddPlayground} />} />
+            <Route path='/playgrounds/:playgroundsId' element={<PlaygroundDetails handleDeletePlayground={handleDeletePlayground} />} />
           </>
         ) : (
           <>

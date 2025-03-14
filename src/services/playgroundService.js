@@ -22,9 +22,57 @@ const index = async () => {
     }
   };
 
+  const create = async (playgroundFormData) => {
+    try {
+      const res = await fetch(BASE_URL, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(playgroundFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+};
+
+  const createComment = async (playgroundId, commentFormData) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${playgroundId}/comments`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(commentFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deletePlayground = async (playgroundId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${playgroundId}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
   export { 
     index,
     show,
+    create,
+    createComment,
+    deletePlayground,
   };
   
 
