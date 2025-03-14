@@ -11,6 +11,9 @@ import PlaygroundList from './components/PlaygroundList/PlaygroundList';
 import PlaygroundDetails from './components/PlaygroundDetails/PlaygroundDetails';
 import PlaygroundForm from './components/PlaygroundForm/PlaygroundForm';
 import CommentForm from './components/CommentForm/CommentForm';
+import Games from './components/Games/Games';
+import Media from './components/Media/Media';
+import ParentPortal from './components/ParentPortal/ParentPortal';
 
 import * as playgroundService from './services/playgroundService';
 
@@ -36,10 +39,11 @@ const App = () => {
   };
 
   const handleDeletePlayground = async (playgroundId) => {
-  const deletedPlayground = await playgroundService.deletePlayground(playgroundId);
-  setPlaygrounds(playgrounds.filter(playground => playground._id !== playgroundId));
-  navigate('/playgrounds');
+    const deletedPlayground = await playgroundService.deletePlayground(playgroundId);
+    setPlaygrounds(playgrounds.filter(playground => playground._id !== playgroundId));
+    navigate('/playgrounds');
   }
+
   const handleUpdatePlayground = async (playgroundId, playgroundFormData) => {
     const updatedPlayground = await playgroundService.update(playgroundId, playgroundFormData);
     setPlaygrounds(playgrounds.map(playground => playground._id === playgroundId ? updatedPlayground : playground));
@@ -58,11 +62,12 @@ const App = () => {
             <Route path='/playgrounds' element={<PlaygroundList playgrounds={playgrounds} />} />
             <Route path='/playgrounds/new' element={<PlaygroundForm handleAddPlayground={handleAddPlayground} />} />
             <Route path='/playgrounds/:playgroundId/edit' element={<PlaygroundForm handleUpdatePlayground={handleUpdatePlayground} />} />
-            <Route path='/playgrounds/:playgroundId' element={
-              <PlaygroundDetails handleDeletePlayground={handleDeletePlayground} />
-            } />
+            <Route path='/playgrounds/:playgroundId' element={<PlaygroundDetails handleDeletePlayground={handleDeletePlayground} />} />
             <Route path='/playgrounds/:playgroundId/comments' element={<CommentForm />} />
             <Route path='/playgrounds/:playgroundId/comments/:commentId/edit' element={<CommentForm />} />
+            <Route path='/games' element={<Games />} />
+            <Route path='/media' element={<Media />} />
+            <Route path='/parent-portal' element={<ParentPortal />} />
           </>
         ) : (
           <>
