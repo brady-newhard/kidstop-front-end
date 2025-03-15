@@ -1,31 +1,46 @@
 import { Link } from 'react-router-dom';
+import './PlaygroundList.css';
 
 const PlaygroundList = (props) => {
     return (
-        <main>
-          {props.playgrounds.map((playground) => (
-            <div key={playground._id}>
-              <Link to={`/playgrounds/${playground._id}`}>
-                <article>
-                  <header>
-                    <h2>{playground.name}</h2>
+        <main className="playground-list-container">
+          <div className="playground-list-header">
+            <h1 className="playground-list-title">Your Favorite KidStops</h1>
+            <p className="playground-list-description">
+              View and manage your saved playgrounds and dog parks.
+            </p>
+          </div>
+          
+          {props.playgrounds.length > 0 ? (
+            <div className="playground-grid">
+              {props.playgrounds.map((playground) => (
+                <Link 
+                  key={playground._id} 
+                  to={`/playgrounds/${playground._id}`}
+                  className="playground-card"
+                >
+                  <div className="playground-card-content">
+                    <h2 className="playground-card-title">{playground.name}</h2>
                     {playground.author && (
-                      <p>
+                      <p className="playground-card-address">
                         {`${playground.author.username} posted on
                         ${new Date(playground.createdAt).toLocaleDateString()}`}
                       </p>
                     )}
-                  </header>
-                  {/* {playground.comments && playground.comments.length > 0 ? (
-                    <p>{`${playground.comments.length} comment${playground.comments.length === 1 ? '' : 's'}`}</p>
-                  ) : (
-                    <p>No comments yet</p>
-                  )} */}
-                  <p>{playground.description}</p>
-                </article>
+                    <p className="playground-card-description">{playground.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="playground-empty-state">
+              <h3>No favorites yet</h3>
+              <p>You haven't saved any KidStops to your favorites yet. Explore and find some great places to add!</p>
+              <Link to="/playgroundfinder" className="playground-empty-state-button">
+                Find KidStops
               </Link>
             </div>
-          ))}
+          )}
         </main>
     );
 };

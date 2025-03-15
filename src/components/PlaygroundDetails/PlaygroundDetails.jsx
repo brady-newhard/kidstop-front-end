@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from 'react';
 import * as playgroundService from '../../services/playgroundService';
 import CommentForm from '../CommentForm/CommentForm';
 import { UserContext } from '../../contexts/UserContext';
+import './PlaygroundDetails.css';
 
 const PlaygroundDetails = (props) => {
     const { playgroundId } = useParams();
@@ -50,7 +51,7 @@ const PlaygroundDetails = (props) => {
                             {user && playground.author._id === user._id && (
                                 <>
                                     <Link to={`/playgrounds/${playgroundId}/edit`}>
-                                        <button>Edit</button>
+                                        <button type='submit'>Edit</button>
                                     </Link>
                                     <button onClick={() => props.handleDeletePlayground(playgroundId)}>
                                         Delete

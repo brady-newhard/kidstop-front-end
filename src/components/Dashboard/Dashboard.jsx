@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
@@ -47,16 +48,17 @@ const Dashboard = () => {
   if (!user) return <main><h1>Loading...</h1></main>;
 
   return (
-    <main>
-      <h1>Welcome back, {user?.firstName || user?.username || 'Guest'}! Ready for your well-deserved break? Let's find your next KidStop adventure! </h1>
+    <main className="dasboard-container">
+      <h1 className="dasboard-title">Welcome back, {user?.firstName || user?.username || 'Guest'}! Ready for your well-deserved break? Let's find your next KidStop adventure! </h1>
       
-      <div>
+      <div className="dasboard-grid">
         {dashboardItems.map((item) => (
           <Link 
             key={item.path}
             to={item.path}
+            className="dasboard-feature-card"
           >
-            <div>
+            <div className="dashboard-icon">
               {item.icon}
             </div>
             <h2>{item.title}</h2>

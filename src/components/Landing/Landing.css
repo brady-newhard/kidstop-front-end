@@ -1,0 +1,105 @@
+/* Landing.css - Styles for the Landing component */
+
+.landing-container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+}
+
+.landing-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.landing-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.landing-card h2 {
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.landing-card p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.landing-buttons button {
+  min-width: 120px;
+}
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.landing-feature-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.landing-feature-card h3 {
+  color: #3498db;
+  margin-bottom: 0.75rem;
+}
+
+.landing-feature-card p {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.landing-feature-list {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.landing-feature-list h2 {
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.landing-feature-list ul {
+  padding-left: 1.5rem;
+}
+
+.landing-feature-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Responsive styles */
+@media (min-width: 600px) {
+  .landing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .landing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+} 

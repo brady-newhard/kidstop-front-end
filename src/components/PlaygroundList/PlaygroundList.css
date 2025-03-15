@@ -1,0 +1,179 @@
+.playground-list-container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.playground-list-header {
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.playground-list-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.playground-list-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+.playground-list-description {
+  max-width: 100%;
+  margin: 0 auto 1.5rem;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.playground-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.playground-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.playground-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.playground-card-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+
+.playground-card-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #3498db;
+  border-radius: 1.5px;
+}
+
+.playground-card-address {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.playground-card-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  width: 100%;
+}
+
+.playground-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.playground-empty-state h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.playground-empty-state p {
+  color: #7f8c8d;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.playground-empty-state-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.playground-empty-state-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Responsive Styles ---- */
+@media (min-width: 900px) {
+  .playground-list-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .playground-list-container {
+    padding: 3rem 2rem;
+  }
+}

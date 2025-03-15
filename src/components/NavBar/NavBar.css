@@ -1,0 +1,151 @@
+nav {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.nav-logo a {
+  color: #3498db;
+  padding: 0;
+  text-decoration: none;
+}
+
+.toggle-container {
+  position: relative;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle:hover, .menu-toggle:active {
+  background: none;
+  color: #3498db;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  width: 250px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  z-index: 1000;
+  text-align: right;
+  border-radius: 0 0 0 8px;
+  margin-left: auto;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.nav-menu li:last-child {
+  border-bottom: none;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333;
+  font-weight: 500;
+  text-align: right;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.nav-menu a:hover, .nav-menu a:active {
+  background-color: #f8f9fa;
+  color: #3498db;
+}
+
+/* iPad Pro specific styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .nav-logo {
+    text-align: left;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  nav li {
+    margin: 0;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+    text-align: right;
+  }
+  
+  nav li a {
+    padding: 0.75rem 1rem;
+    text-align: right;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-menu {
+    position: static !important;
+    box-shadow: none !important;
+    width: auto !important;
+  }
+  
+  .nav-menu ul {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  .nav-menu li {
+    margin: 0 0.5rem !important;
+    border-bottom: none !important;
+  }
+  
+  .nav-menu a {
+    padding: 0.5rem 0.75rem !important;
+  }
+}
