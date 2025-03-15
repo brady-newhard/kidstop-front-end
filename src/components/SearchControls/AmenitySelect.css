@@ -1,0 +1,127 @@
+/* AmenitySelect.css - Kid-themed styling for the AmenitySelect component */
+
+.amenity-select-container {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 15px;
+  background-color: #FFC107; /* Yellow background to match theme */
+  box-shadow: 0 4px 0 rgba(13, 71, 161, 0.3);
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.amenity-select-container:hover {
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
+}
+
+.amenity-select-title {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #0D47A1; /* Dark blue text */
+  font-weight: bold;
+}
+
+.amenity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.amenity-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #FFFFFF;
+  transition: all 0.2s ease;
+  color: #0D47A1; /* Dark blue text */
+  border: 2px solid transparent;
+  font-size: 0.9rem;
+  text-align: center;
+  height: 100%;
+}
+
+.amenity-option:hover {
+  background-color: #E3F2FD; /* Lighter blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(13, 71, 161, 0.2);
+}
+
+.amenity-option.selected {
+  background-color: #1E88E5; /* Blue background for selected items to match theme */
+  color: #FFFFFF; /* White text for better contrast */
+  border-color: #0D47A1;
+  box-shadow: 0 2px 0 rgba(13, 71, 161, 0.3);
+}
+
+.amenity-option input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.amenity-option span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Extract emoji from text and make it larger */
+.amenity-option span::before {
+  content: attr(data-emoji);
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .amenity-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 6px;
+  }
+  
+  .amenity-option {
+    padding: 6px 4px;
+  }
+  
+  .amenity-option span {
+    font-size: 0.75rem;
+  }
+  
+  .amenity-option span::before {
+    font-size: 1.3rem;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .amenity-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 5px;
+  }
+  
+  .amenity-select-title {
+    font-size: 1rem;
+  }
+  
+  .amenity-option {
+    padding: 4px 3px;
+  }
+  
+  .amenity-option span {
+    font-size: 0.7rem;
+  }
+  
+  .amenity-option span::before {
+    font-size: 1.2rem;
+  }
+} 

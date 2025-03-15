@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AmenitySelect from './AmenitySelect';
+import './SearchControls.css';
 
 const SearchControls = ({ onSearch }) => {
   const [searchType, setSearchType] = useState('playground'); // 'playground' or 'dogpark' or 'both'
@@ -102,14 +103,14 @@ const SearchControls = ({ onSearch }) => {
   const radiusOptions = [1, 2, 5, 10, 15, 20, 25, 50];
 
   return (
-    <div className="search-controls" style={{ marginBottom: '20px' }}>
-      <div style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+    <div className="search-controls">
+      <div className="search-options">
+        <label className="search-option-label">
           <span>Search for:</span>
           <select 
             value={searchType}
             onChange={(e) => setSearchType(e.target.value)}
-            style={{ padding: '8px', borderRadius: '4px' }}
+            className="search-option-select"
           >
             <option value="playground">Playgrounds</option>
             <option value="dogpark">Dog Parks</option>
@@ -117,12 +118,12 @@ const SearchControls = ({ onSearch }) => {
           </select>
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <label className="search-option-label">
           <span>Search by:</span>
           <select 
             value={searchMethod}
             onChange={(e) => setSearchMethod(e.target.value)}
-            style={{ padding: '8px', borderRadius: '4px' }}
+            className="search-option-select"
           >
             <option value="current">Use my current location</option>
             <option value="cityState">Search by city/state</option>
@@ -130,13 +131,13 @@ const SearchControls = ({ onSearch }) => {
           </select>
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <label className="search-option-label">
           <span>Radius:</span>
           <select
             name="radius"
             value={radius}
             onChange={handleInputChange}
-            style={{ padding: '8px', borderRadius: '4px' }}
+            className="search-option-select"
           >
             {radiusOptions.map(miles => (
               <option key={miles} value={miles}>
@@ -146,23 +147,25 @@ const SearchControls = ({ onSearch }) => {
           </select>
         </label>
 
-        <button 
-          onClick={handleCurrentLocation}
-          style={{ padding: '8px 16px', borderRadius: '4px', backgroundColor: '#4CAF50', color: 'white', border: 'none' }}
-        >
-          Use Current Location
-        </button>
+        {searchMethod === 'current' && (
+          <button 
+            onClick={handleCurrentLocation}
+            className="theme-button"
+          >
+            Use Current Location
+          </button>
+        )}
       </div>
 
       {searchMethod === 'cityState' && (
-        <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+        <form onSubmit={handleSubmit} className="search-form">
           <input
             type="text"
             name="city"
             value={city}
             onChange={handleInputChange}
             placeholder="Enter city"
-            style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+            className="search-input"
             required
           />
           <input
@@ -171,12 +174,12 @@ const SearchControls = ({ onSearch }) => {
             value={state}
             onChange={handleInputChange}
             placeholder="Enter state"
-            style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+            className="search-input"
             required
           />
           <button 
             type="submit"
-            style={{ padding: '8px 16px', borderRadius: '4px', backgroundColor: '#2196F3', color: 'white', border: 'none' }}
+            className="theme-button"
           >
             Search
           </button>
@@ -184,7 +187,7 @@ const SearchControls = ({ onSearch }) => {
       )}
 
       {searchMethod === 'zip' && (
-        <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+        <form onSubmit={handleSubmit} className="search-form">
           <input
             type="text"
             name="zipCode"
@@ -192,12 +195,12 @@ const SearchControls = ({ onSearch }) => {
             onChange={handleInputChange}
             placeholder="Enter zip code"
             pattern="[0-9]{5}"
-            style={{ padding: '8px', borderRadius: '4px', border: '1px solid #ccc' }}
+            className="search-input"
             required
           />
           <button 
             type="submit"
-            style={{ padding: '8px 16px', borderRadius: '4px', backgroundColor: '#2196F3', color: 'white', border: 'none' }}
+            className="theme-button"
           >
             Search
           </button>

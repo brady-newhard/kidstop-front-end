@@ -3,6 +3,7 @@ import GoogleMapComponent from "../GoogleMapsAPI/GoogleMapsAPI";
 import GooglePlacesSearch from "../GooglePlacesAPI/GooglePlacesAPI";
 import SearchControls from "../SearchControls/SearchControls";
 import { amenityOptions } from "../SearchControls/AmenitySelect";
+import "./PlaygroundSearch.css";
 
 const PlaygroundsPage = () => {
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -256,32 +257,19 @@ const PlaygroundsPage = () => {
   };
 
   return (
-    <div style={{ 
-        padding: "20px", 
-        maxWidth: "1200px", 
-        margin: "0 auto",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column"
-    }}>
-      <h1>Find Your KidStop</h1>
+    <div className="playground-search-container">
+      <h1 className="playground-search-title">Find Your KidStop</h1>
       
       <SearchControls onSearch={handleSearch} />
       
       {error && (
-        <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>
+        <p className="playground-error">{error}</p>
       )}
       
-      <div style={{ 
-        flex: 1,
-        width: "100%",
-        minHeight: "400px",
-        marginTop: "20px"
-      }}>
+      <div className="playground-map-container">
         {selectedPlace ? (
           <div>
             <h3>{selectedPlace.name}</h3>
-            {/* <p>{selectedPlace.address}</p> */}
             <div style={{ height: "400px", width: "100%" }}>
               <GoogleMapComponent 
                 lat={selectedPlace.location.lat} 
