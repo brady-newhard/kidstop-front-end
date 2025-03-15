@@ -1,11 +1,9 @@
 .playground-list-container {
-  max-width: 100%;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 2rem 1rem;
-  background-color: #f8f9fa;
-  border-radius: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #64B5F6; /* Match body background */
 }
 
 .playground-list-header {
@@ -16,10 +14,10 @@
 }
 
 .playground-list-title {
+  color: #FFFFFF; /* White text for contrast */
   font-size: 2.5rem;
-  color: #2c3e50;
   margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 0px rgba(13, 71, 161, 0.3);
   position: relative;
   display: inline-block;
   padding-bottom: 0.5rem;
@@ -33,16 +31,16 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: #3498db;
+  background-color: #FFC107; /* Yellow underline */
   border-radius: 2px;
 }
 
 .playground-list-description {
-  max-width: 100%;
-  margin: 0 auto 1.5rem;
-  color: #555;
+  color: #FFFFFF;
   line-height: 1.6;
   font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
 }
 
 .playground-grid {
@@ -53,9 +51,9 @@
 }
 
 .playground-card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #FFC107; /* Yellow background for cards */
+  border-radius: 20px;
+  box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
   overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
@@ -63,14 +61,14 @@
   flex-direction: column;
   height: 100%;
   text-decoration: none;
-  color: inherit;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  width: 100%;
+  color: #0D47A1; /* Dark blue text */
+  border: 2px solid transparent;
 }
 
 .playground-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 0 rgba(13, 71, 161, 0.3);
+  border-color: #FFFFFF;
 }
 
 .playground-card-content {
@@ -83,11 +81,12 @@
 
 .playground-card-title {
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: #0D47A1; /* Dark blue for contrast on yellow */
   margin-bottom: 0.5rem;
   position: relative;
   padding-bottom: 0.5rem;
   width: 100%;
+  font-weight: bold;
 }
 
 .playground-card-title::after {
@@ -97,13 +96,13 @@
   left: 0;
   width: 40px;
   height: 3px;
-  background-color: #3498db;
+  background-color: #0D47A1;
   border-radius: 1.5px;
 }
 
 .playground-card-address {
   font-size: 0.9rem;
-  color: #7f8c8d;
+  color: #0D47A1;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -111,7 +110,7 @@
 }
 
 .playground-card-description {
-  color: #555;
+  color: #0D47A1;
   line-height: 1.6;
   margin-bottom: 1rem;
   flex-grow: 1;
@@ -125,50 +124,63 @@
 .playground-empty-state {
   text-align: center;
   padding: 3rem 1rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #FFC107;
+  border-radius: 20px;
+  box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
   width: 100%;
 }
 
 .playground-empty-state h3 {
-  font-size: 1.5rem;
-  color: #2c3e50;
+  font-size: 1.8rem;
+  color: #0D47A1;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .playground-empty-state p {
-  color: #7f8c8d;
+  color: #0D47A1;
   margin-bottom: 1.5rem;
-  max-width: 100%;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .playground-empty-state-button {
-  background-color: #3498db;
+  background-color: #1E88E5;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  box-shadow: 0 4px 0 #0D47A1;
 }
 
 .playground-empty-state-button:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #42A5F5;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #0D47A1;
 }
 
 /* ---- Responsive Styles ---- */
+@media (min-width: 600px) {
+  .playground-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (min-width: 900px) {
   .playground-list-title {
     font-size: 3rem;
+  }
+  
+  .playground-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

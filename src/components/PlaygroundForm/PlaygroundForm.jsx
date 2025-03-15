@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import * as playgroundService from '../../services/playgroundService';
 import './PlaygroundForm.css';
+import AmenitySelect, { amenityOptions } from '../SearchControls/AmenitySelect';
 
 // import { amenityOptions } from '../SearchControls/AmenitySelect';
 
@@ -12,21 +13,29 @@ const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    rating: 'A'
+    rating: 'A',
+    amenities: []
   });
 
   useEffect(() => {
     const fetchPlayground = async () => {
       const playgroundData = await playgroundService.show(playgroundId);
-      setFormData(playgroundData);
+      setFormData({
+        ...playgroundData,
+        amenities: playgroundData.amenities || []
+      });
     };
     if (playgroundId) fetchPlayground();
 
-    return () => setFormData({ name: '', description: '', rating: 'A' });
+    return () => setFormData({ name: '', description: '', rating: 'A', amenities: [] });
   }, [playgroundId]);
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
+  };
+
+  const handleAmenitiesChange = (selectedAmenities) => {
+    setFormData({ ...formData, amenities: selectedAmenities });
   };
 
   const handleSubmit = (evt) => {
@@ -85,6 +94,14 @@ const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
             <option value='F'>F</option>
           </select>
         </div>
+
+        {/* <div className="form-group">
+          <label>Amenities</label>
+          <AmenitySelect 
+            selectedAmenities={formData.amenities} 
+            onChange={handleAmenitiesChange} 
+          />
+        </div> */}
 
         <button type='submit' className="playground-form-button">
           {playgroundId ? 'Update' : 'Add'} KidStop

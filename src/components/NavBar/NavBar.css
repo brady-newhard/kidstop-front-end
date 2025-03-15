@@ -1,6 +1,6 @@
 nav {
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #1E88E5; /* Brighter blue for nav */
+  box-shadow: 0 4px 0 rgba(13, 71, 161, 0.3);
   padding: 0.75rem 0;
   position: sticky;
   top: 0;
@@ -19,12 +19,12 @@ nav {
 
 .nav-logo {
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-align: left;
 }
 
 .nav-logo a {
-  color: #3498db;
+  color: #FFFFFF; /* White text */
   padding: 0;
   text-decoration: none;
 }
@@ -36,7 +36,7 @@ nav {
 .menu-toggle {
   background: none;
   border: none;
-  color: #333;
+  color: #FFFFFF; /* White text */
   font-size: 1.5rem;
   padding: 0.25rem;
   height: 40px;
@@ -50,7 +50,9 @@ nav {
 
 .menu-toggle:hover, .menu-toggle:active {
   background: none;
-  color: #3498db;
+  color: #FFFFFF;
+  transform: none;
+  box-shadow: none;
 }
 
 .nav-menu {
@@ -58,7 +60,7 @@ nav {
   top: 0;
   right: 1rem;
   width: 250px;
-  background-color: white;
+  background-color: #1E88E5; /* Match nav background */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
   z-index: 1000;
@@ -75,26 +77,23 @@ nav {
 
 .nav-menu li {
   margin: 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.nav-menu li:last-child {
-  border-bottom: none;
+  margin-bottom: 0.5rem;
 }
 
 .nav-menu a {
   display: block;
   padding: 0.75rem 1rem;
-  color: #333;
+  color: #FFFFFF; /* White text */
   font-weight: 500;
   text-align: right;
   text-decoration: none;
   transition: background-color 0.2s ease;
+  border-radius: 8px;
 }
 
 .nav-menu a:hover, .nav-menu a:active {
-  background-color: #f8f9fa;
-  color: #3498db;
+  background-color: #64B5F6; /* Lighter blue on hover */
+  color: #FFFFFF;
 }
 
 /* iPad Pro specific styles */
@@ -112,7 +111,7 @@ nav {
   
   nav li {
     margin: 0;
-    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 0.5rem;
     width: 100%;
     text-align: right;
   }
@@ -142,7 +141,6 @@ nav {
   
   .nav-menu li {
     margin: 0 0.5rem !important;
-    border-bottom: none !important;
   }
   
   .nav-menu a {

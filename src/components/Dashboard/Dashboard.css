@@ -5,13 +5,15 @@
     max-width: 1200px;
     padding: 2rem 1rem;
     margin: 0 auto;
+    background-color: #64B5F6; /* Match body background */
   }
   
   .dasboard-title {
+    color: #FFFFFF; /* White text for contrast on blue background */
     font-size: 2.5rem;
-    color: #2c3e50;
     margin-bottom: 1.5rem;
     text-align: center;
+    text-shadow: 2px 2px 0px rgba(13, 71, 161, 0.3);
   }
   
   .dasboard-grid {
@@ -21,35 +23,51 @@
   }
   
   .dasboard-feature-card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #FFC107; /* Yellow background for cards */
+    border-radius: 20px;
+    box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     height: 100%;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: #0D47A1; /* Dark blue text */
+    border: 2px solid transparent;
   }
   
   .dasboard-feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 0 rgba(13, 71, 161, 0.3);
+    border-color: #FFFFFF;
   }
   
   .dasboard-feature-card h2 {
-    color: #3498db;
+    color: #0D47A1; /* Dark blue for contrast on yellow */
     margin-bottom: 0.75rem;
+    font-weight: bold;
   }
   
   .dasboard-feature-card p {
     margin-bottom: 1.5rem;
     flex-grow: 1;
+    color: #0D47A1; /* Dark blue text */
   }
   
   .dashboard-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
     text-align: center;
+    background-color: #FFFFFF; /* White circle for icons */
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 0 rgba(13, 71, 161, 0.3);
   }
   
   /* Responsive styles */
