@@ -48,7 +48,7 @@ const Dashboard = () => {
 
   return (
     <main>
-      <h1>Welcome, {user?.firstName || user?.username || 'Guest'}!</h1>
+      <h1>Welcome back, {user?.firstName || user?.username || 'Guest'}! Ready for your well-deserved break? Let's find your next KidStop adventure! </h1>
       
       <div>
         {dashboardItems.map((item) => (

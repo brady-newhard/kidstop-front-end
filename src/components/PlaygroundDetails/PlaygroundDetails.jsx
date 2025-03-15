@@ -60,7 +60,6 @@ const PlaygroundDetails = (props) => {
                         </div>
                     )}
                 </header>
-                
             </section>
 
             {/* Description */}

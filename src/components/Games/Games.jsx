@@ -37,17 +37,6 @@ const Games = () => {
         </a>
 
       </section>
-
-      <section>
-        <h2>Account Access</h2>
-        <Link to="/sign-up">
-          <button>Sign Up</button>
-        </Link>
-        {' '}
-        <Link to="/sign-in">
-          <button>Sign In</button>
-        </Link>
-      </section>
     </main>
   );
 };
