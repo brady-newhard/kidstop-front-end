@@ -431,3 +431,25 @@ main section:nth-of-type(2) article button:hover {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #0D47A1;
 }
+
+/* Add this new style for the comments header */
+.comments-header {
+  color: #FFFFFF; /* White text for contrast */
+  font-size: 2rem;
+  margin: 1.5rem 0 1rem 0;
+  text-shadow: 2px 2px 0px rgba(13, 71, 161, 0.3);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.comments-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background-color: #FFC107; /* Yellow underline */
+  border-radius: 2px;
+}

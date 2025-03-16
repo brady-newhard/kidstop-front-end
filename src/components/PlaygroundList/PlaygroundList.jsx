@@ -5,9 +5,9 @@ const PlaygroundList = (props) => {
     return (
         <main className="playground-list-container">
           <div className="playground-list-header">
-            <h1 className="playground-list-title">Your Favorite KidStops</h1>
+            <h1 className="playground-list-title">Favorite KidStops</h1>
             <p className="playground-list-description">
-              View and manage your saved playgrounds and dog parks.
+              View your's and others favorite KidStop's
             </p>
           </div>
           
