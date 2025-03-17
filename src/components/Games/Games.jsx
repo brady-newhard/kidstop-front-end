@@ -1,42 +1,55 @@
 import { Link } from 'react-router-dom';
+import './Games.css';
 
 const Games = () => {
-  return (
-    <main>
-      <h1>Games & Activities</h1>
-      
-      <section>
-        <a 
-          href="https://brady-newhard.github.io/little-mermaid-match-game/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          The Little Mermaid Match Game
-        </a>
-        <br />
-        <a 
-          href="https://mendezugenbuehler.github.io/memory-game/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Power Up via Memory Game
-        </a>
-        <br />
-        <a href="https://brady-newhard.github.io/tic-tac-toe/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-          Tic Tac Toe
-        </a>
-        <br />
-        <a href="https://licenseplates.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >
-          The License Plate Game
-        </a>
+  // Simple game data with just title, icon and URL
+  const gamesList = [
+    {
+      id: 'mermaid-match',
+      title: 'The Little Mermaid Match Game',
+      icon: '🧜‍♀️',
+      url: 'https://brady-newhard.github.io/little-mermaid-match-game/'
+    },
+    {
+      id: 'memory-game',
+      title: 'Power Up Memory Game',
+      icon: '🍄',
+      url: 'https://mendezugenbuehler.github.io/memory-game/'
+    },
+    {
+      id: 'tic-tac-toe',
+      title: 'Tic Tac Toe',
+      icon: '⭕',
+      url: 'https://brady-newhard.github.io/tic-tac-toe/'
+    },
+    {
+      id: 'license-plate',
+      title: 'The License Plate Game',
+      icon: '🚗',
+      url: 'https://licenseplates.app/'
+    }
+  ];
 
-      </section>
+  return (
+    <main className="games-container">
+      <div className="games-header">
+        <h1 className="games-title">Games & Activities</h1>
+      </div>
+      
+      <div className="games-list">
+        {gamesList.map((game) => (
+          <a 
+            key={game.id}
+            href={game.url}
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="game-button"
+          >
+            <span className="game-icon">{game.icon}</span>
+            {game.title}
+          </a>
+        ))}
+      </div>
     </main>
   );
 };

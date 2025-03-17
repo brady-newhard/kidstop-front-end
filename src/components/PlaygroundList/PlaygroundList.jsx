@@ -9,6 +9,11 @@ const PlaygroundList = (props) => {
             <p className="playground-list-description">
               View your's and others favorite KidStop's
             </p>
+            <div className="playground-list-actions">
+              <Link to="/playgrounds/new" className="playground-action-button">
+                Add New KidStop
+              </Link>
+            </div>
           </div>
           
           {props.playgrounds.length > 0 ? (
@@ -28,6 +33,7 @@ const PlaygroundList = (props) => {
                       </p>
                     )}
                     <p className="playground-card-description">{playground.description}</p>
+                    {playground.location && <p className="playground-card-location">Location: {playground.location}</p>}
                   </div>
                 </Link>
               ))}

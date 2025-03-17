@@ -47,6 +47,7 @@ const PlaygroundDetails = (props) => {
                                 ${new Date(playground.createdAt).toLocaleDateString()}`}
                             </p>
                             <p>{playground.description}</p>
+                            {playground.location && <p>Location: {playground.location}</p>}
                             <p>{playground.rating}</p>
                             {user && playground.author._id === user._id && (
                                 <>

@@ -43,6 +43,35 @@
   margin: 0 auto 1.5rem;
 }
 
+.playground-list-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.playground-action-button {
+  background-color: #1E88E5; /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 0 #0D47A1;
+  text-decoration: none;
+}
+
+.playground-action-button:hover {
+  background-color: #42A5F5;
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #0D47A1;
+}
+
 .playground-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -121,6 +150,16 @@
   width: 100%;
 }
 
+.playground-card-location {
+  color: #0D47A1;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-style: italic;
+}
+
 .playground-empty-state {
   text-align: center;
   padding: 3rem 1rem;
@@ -145,6 +184,14 @@
   margin-right: auto;
 }
 
+.playground-empty-state-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 .playground-empty-state-button {
   background-color: #1E88E5;
   color: white;
@@ -159,6 +206,18 @@
   align-items: center;
   gap: 0.5rem;
   box-shadow: 0 4px 0 #0D47A1;
+  text-decoration: none;
+  margin: 0;
+}
+
+.playground-empty-state-button.add-button {
+  background-color: #1E88E5; /* Blue like the other button */
+  box-shadow: 0 4px 0 #0D47A1;
+}
+
+.playground-empty-state-button.add-button:hover {
+  background-color: #42A5F5;
+  box-shadow: 0 2px 0 #0D47A1;
 }
 
 .playground-empty-state-button:hover {

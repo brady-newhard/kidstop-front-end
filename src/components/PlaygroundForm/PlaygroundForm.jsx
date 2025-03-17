@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import * as playgroundService from '../../services/playgroundService';
 import './PlaygroundForm.css';
-import AmenitySelect, { amenityOptions } from '../SearchControls/AmenitySelect';
+// import AmenitySelect, { amenityOptions } from '../SearchControls/AmenitySelect';
 
 // import { amenityOptions } from '../SearchControls/AmenitySelect';
 
@@ -13,8 +13,8 @@ const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    rating: 'A',
-    amenities: []
+    rating: '⭐️',
+    location: '',
   });
 
   useEffect(() => {
@@ -22,21 +22,22 @@ const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
       const playgroundData = await playgroundService.show(playgroundId);
       setFormData({
         ...playgroundData,
-        amenities: playgroundData.amenities || []
+        amenities: playgroundData.amenities || [],
+        rating: playgroundData.rating || '⭐️'
       });
     };
     if (playgroundId) fetchPlayground();
 
-    return () => setFormData({ name: '', description: '', rating: 'A', amenities: [] });
+    return () => setFormData({ name: '', description: '', rating: '⭐️', location: '' });
   }, [playgroundId]);
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
 
-  const handleAmenitiesChange = (selectedAmenities) => {
-    setFormData({ ...formData, amenities: selectedAmenities });
-  };
+  // const handleAmenitiesChange = (selectedAmenities) => {
+  //   setFormData({ ...formData, amenities: selectedAmenities });
+  // };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -65,7 +66,7 @@ const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
             placeholder="Enter playground name"
           />
         </div>
-        
+
         <div className="form-group">
           <label htmlFor='description-input'>Description</label>
           <textarea
@@ -79,6 +80,20 @@ const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
         </div>
 
         <div className="form-group">
+          <label htmlFor='location-input'>Location</label>
+          <input
+            required
+            type='text'
+            name='location'
+            id='location-input'
+            value={formData.location}
+            onChange={handleChange}
+            placeholder="Enter location"
+          />
+        </div>
+        
+
+        <div className="form-group">
           <label htmlFor='rating-input'>Rating</label>
           <select
             required
@@ -87,11 +102,11 @@ const PlaygroundForm = ({ handleAddPlayground, handleUpdatePlayground }) => {
             value={formData.rating}
             onChange={handleChange}
           >
-            <option value='A'>A</option>
-            <option value='B'>B</option>
-            <option value='C'>C</option>
-            <option value='D'>D</option>
-            <option value='F'>F</option>
+            <option value='⭐️'>⭐️</option>
+            <option value='⭐️⭐️'>⭐️⭐️</option>
+            <option value='⭐️⭐️⭐️'>⭐️⭐️⭐️</option>
+            <option value='⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️</option>
+            <option value='⭐️⭐️⭐️⭐️⭐️'>⭐️⭐️⭐️⭐️⭐️</option>
           </select>
         </div>
 
