@@ -15,7 +15,6 @@ const PlaygroundList = (props) => {
               </Link>
             </div>
           </div>
-          
           {props.playgrounds.length > 0 ? (
             <div className="playground-grid">
               {props.playgrounds.map((playground) => (
@@ -34,6 +33,11 @@ const PlaygroundList = (props) => {
                     )}
                     <p className="playground-card-description">{playground.description}</p>
                     {playground.location && <p className="playground-card-location">Location: {playground.location}</p>}
+                    {playground.rating && (
+                      <div className="playground-card-rating">
+                        <span className="rating-stars">{playground.rating}</span>
+                      </div>
+                    )}
                   </div>
                 </Link>
               ))}

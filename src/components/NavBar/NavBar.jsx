@@ -12,10 +12,8 @@ const NavBar = () => {
     setUser(null);
   };
 
-  // Simple toggle function
   const toggleMenu = () => setMenuOpen(!menuOpen);
   
-  // Close menu when a link is clicked
   const handleMenuItemClick = (callback = null) => {
     setMenuOpen(false);
     if (callback) callback();

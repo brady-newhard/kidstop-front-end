@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import './Games.css';
 
 const Games = () => {
-  // Simple game data with just title, icon and URL
   const gamesList = [
     {
       id: 'mermaid-match',

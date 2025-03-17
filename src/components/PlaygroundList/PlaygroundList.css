@@ -3,7 +3,7 @@
   width: 100%;
   margin: 0 auto;
   padding: 2rem 1rem;
-  background-color: #64B5F6; /* Match body background */
+  background-color: #64B5F6;
 }
 
 .playground-list-header {
@@ -14,7 +14,7 @@
 }
 
 .playground-list-title {
-  color: #FFFFFF; /* White text for contrast */
+  color: #FFFFFF;
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 0px rgba(13, 71, 161, 0.3);
@@ -31,7 +31,7 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: #FFC107; /* Yellow underline */
+  background-color: #FFC107;
   border-radius: 2px;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .playground-action-button {
-  background-color: #1E88E5; /* Blue button */
+  background-color: #1E88E5;
   color: white;
   border: none;
   border-radius: 12px;
@@ -80,7 +80,7 @@
 }
 
 .playground-card {
-  background-color: #FFC107; /* Yellow background for cards */
+  background-color: #FFC107;
   border-radius: 20px;
   box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
   overflow: hidden;
@@ -90,7 +90,7 @@
   flex-direction: column;
   height: 100%;
   text-decoration: none;
-  color: #0D47A1; /* Dark blue text */
+  color: #0D47A1;
   border: 2px solid transparent;
 }
 
@@ -110,7 +110,7 @@
 
 .playground-card-title {
   font-size: 1.5rem;
-  color: #0D47A1; /* Dark blue for contrast on yellow */
+  color: #0D47A1;
   margin-bottom: 0.5rem;
   position: relative;
   padding-bottom: 0.5rem;
@@ -211,7 +211,7 @@
 }
 
 .playground-empty-state-button.add-button {
-  background-color: #1E88E5; /* Blue like the other button */
+  background-color: #1E88E5;
   box-shadow: 0 4px 0 #0D47A1;
 }
 
@@ -247,4 +247,14 @@
   .playground-list-container {
     padding: 3rem 2rem;
   }
+}
+
+.playground-card-rating {
+  margin-top: 8px;
+}
+
+.playground-card-rating .rating-stars {
+  font-size: 1.2rem;
+  color: #0D47A1;
+  text-shadow: none;
 }

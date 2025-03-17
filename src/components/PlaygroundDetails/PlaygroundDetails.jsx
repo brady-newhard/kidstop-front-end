@@ -9,6 +9,7 @@ const PlaygroundDetails = (props) => {
     const { playgroundId } = useParams();
     const [playground, setPlayground] = useState(null);
     const { user } = useContext(UserContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchPlayground = async () => {
@@ -31,7 +32,15 @@ const PlaygroundDetails = (props) => {
           ...playground,
           comments: playground.comments.filter((comment) => comment._id !== commentId),
         });
-      };
+    };
+    
+    const handleEditClick = () => {
+        navigate(`/playgrounds/${playgroundId}/edit`);
+    };
+    
+    const handleEditCommentClick = (commentId) => {
+        navigate(`/playgrounds/${playgroundId}/comments/${commentId}/edit`);
+    };
     
     if (!playground) return <div>Loading...</div>;
     
@@ -48,12 +57,13 @@ const PlaygroundDetails = (props) => {
                             </p>
                             <p>{playground.description}</p>
                             {playground.location && <p>Location: {playground.location}</p>}
-                            <p>{playground.rating}</p>
+                            <div className="playground-rating">
+                                <span className="rating-label">Rating: </span>
+                                <span className="rating-stars">{playground.rating}</span>
+                            </div>
                             {user && playground.author._id === user._id && (
                                 <>
-                                    <Link to={`/playgrounds/${playgroundId}/edit`}>
-                                        <button type='submit'>Edit</button>
-                                    </Link>
+                                    <button onClick={handleEditClick}>Edit</button>
                                     <button onClick={() => props.handleDeletePlayground(playgroundId)}>
                                         Delete
                                     </button>
@@ -63,32 +73,9 @@ const PlaygroundDetails = (props) => {
                     )}
                 </header>
             </section>
-
-            {/* Description */}
-            {/* {playground.description && (
-                        <div>
-                            <h2>Description</h2>
-                            <p>{playground.description}</p>
-                        </div>
-                    )} */}
-
-            {/* Amenities */}
-            {/* {playground.amenities && playground.amenities.length > 0 && (
-                        <div className="amenities">
-                            <h2>Amenities</h2>
-                            <ul>
-                                {playground.amenities.map((amenity, index) => (
-                                    <li key={index}>{amenity}</li>
-                                ))}
-                            </ul>
-                        </div>
-                    )} */}
-            {/* </header>
-                <p>{playground.comments}</p>
-            </section> */}
             <section>
-                <h2>Comments</h2>
                 <CommentForm handleAddComment={handleAddComment} />
+                <h2>Comments</h2>
                 {(!playground.comments || !playground.comments.length) && <p>There are no comments.</p>}
                 {playground.comments && playground.comments.map((comment) => (
                     <article key={comment._id}>
@@ -104,7 +91,7 @@ const PlaygroundDetails = (props) => {
                             )}
                             {user && comment.author && comment.author._id === user._id && (
                                 <>
-                                    <Link to={`/playgrounds/${playgroundId}/comments/${comment._id}/edit`}>Edit</Link>
+                                    <button onClick={() => handleEditCommentClick(comment._id)}>Edit</button>
                                     <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
                                 </>
                             )}

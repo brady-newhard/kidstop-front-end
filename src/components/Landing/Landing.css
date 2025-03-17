@@ -1,15 +1,13 @@
-/* Landing.css - Styles for the Landing component */
-
 .landing-container {
   width: 100%;
   max-width: 1200px;
   padding: 2rem 1rem;
   margin: 0 auto;
-  background-color: #64B5F6; /* Match body background */
+  background-color: #64B5F6;
 }
 
 .landing-title {
-  color: #FFFFFF; /* White text for contrast */
+  color: #FFFFFF;
   font-size: 3rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -28,12 +26,12 @@
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background-color: #FFC107; /* Yellow underline */
+  background-color: #FFC107;
   border-radius: 2px;
 }
 
 .landing-card {
-  background-color: #FFC107; /* Yellow background */
+  background-color: #FFC107;
   border-radius: 20px;
   box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
   padding: 2rem;
@@ -42,14 +40,14 @@
 }
 
 .landing-card h2 {
-  color: #0D47A1; /* Dark blue text */
+  color: #0D47A1; 
   margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: bold;
 }
 
 .landing-card p {
-  color: #0D47A1; /* Dark blue text */
+  color: #0D47A1;
   margin-bottom: 1rem;
   line-height: 1.6;
   font-size: 1.1rem;
@@ -64,7 +62,7 @@
 
 .landing-buttons button {
   min-width: 120px;
-  background-color: #1E88E5; /* Blue buttons for contrast */
+  background-color: #1E88E5;
   color: white;
   box-shadow: 0 4px 0 #0D47A1;
   padding: 0.75rem 1.5rem;
@@ -85,7 +83,7 @@
 }
 
 .landing-feature-card {
-  background-color: #FFC107; /* Yellow background */
+  background-color: #FFC107;
   border-radius: 20px;
   box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
   padding: 1.5rem;
@@ -103,20 +101,20 @@
 }
 
 .landing-feature-card h3 {
-  color: #0D47A1; /* Dark blue text */
+  color: #0D47A1;
   margin-bottom: 0.75rem;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 .landing-feature-card p {
-  color: #0D47A1; /* Dark blue text */
+  color: #0D47A1;
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
 
 .landing-feature-card button {
-  background-color: #1E88E5; /* Blue buttons for contrast */
+  background-color: #1E88E5;
   color: white;
   box-shadow: 0 4px 0 #0D47A1;
   align-self: flex-start;
@@ -129,14 +127,14 @@
 }
 
 .landing-feature-list {
-  background-color: #FFC107; /* Yellow background */
+  background-color: #FFC107;
   border-radius: 20px;
   box-shadow: 0 6px 0 rgba(13, 71, 161, 0.3);
   padding: 2rem;
 }
 
 .landing-feature-list h2 {
-  color: #0D47A1; /* Dark blue text */
+  color: #0D47A1; 
   margin-bottom: 1rem;
   font-size: 2rem;
   font-weight: bold;
@@ -144,7 +142,7 @@
 
 .landing-feature-list ul {
   padding-left: 1.5rem;
-  color: #0D47A1; /* Dark blue text */
+  color: #0D47A1;
 }
 
 .landing-feature-list li {

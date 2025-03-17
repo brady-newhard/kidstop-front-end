@@ -48,14 +48,21 @@
 }
 
 .playground-rating {
+  margin: 10px 0;
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
-.playground-rating svg {
-  color: #f1c40f;
-  margin-right: 0.25rem;
+.rating-label {
+  font-weight: normal;
+  margin-right: 8px;
+  color: #0D47A1;
+}
+
+.rating-stars {
+  font-size: 1.2rem;
+  color: #0D47A1;
+  text-shadow: none;
 }
 
 .playground-rating-value {
@@ -372,7 +379,7 @@ main section:first-of-type p {
 main section:first-of-type button {
   background-color: #1E88E5;
   color: white;
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
   box-shadow: 0 4px 0 #0D47A1;
 }
 
@@ -423,6 +430,7 @@ main section:nth-of-type(2) article a {
 main section:nth-of-type(2) article button {
   background-color: #1E88E5;
   color: white;
+  margin-right: 0.75rem;
   box-shadow: 0 4px 0 #0D47A1;
 }
 

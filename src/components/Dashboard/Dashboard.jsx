@@ -9,9 +9,21 @@ const Dashboard = () => {
   const dashboardItems = [
     {
       title: 'Find KidStops',
-      icon: '🐶🛝',
+      icon: '🛝',
       path: '/playgroundfinder',
       description: 'Search for playgrounds and dog parks near you'
+    },
+    {
+      title: 'Add a KidStop',
+      icon: '➕',
+      path: '/playgrounds/new',
+      description: 'Share a new playground or dog park'
+    },
+    {
+      title: 'Favorite KidStops',
+      icon: '⭐',
+      path: '/playgrounds',
+      description: 'Your saved playgrounds and dog parks'
     },
     {
       title: 'Games',
@@ -30,19 +42,7 @@ const Dashboard = () => {
       icon: '👪',
       path: '/parent-portal',
       description: 'Parent resources and tools'
-    },
-    {
-      title: 'Favorite KidStops',
-      icon: '⭐',
-      path: '/playgrounds',
-      description: 'Your saved playgrounds and dog parks'
-    },
-    {
-      title: 'Add a KidStop',
-      icon: '➕',
-      path: '/playgrounds/new',
-      description: 'Share a new playground or dog park'
-    }
+    }, 
   ];
 
   if (!user) return <main><h1>Loading...</h1></main>;
