@@ -14,26 +14,26 @@ https://the-craft-beer-collective-30d7183bcd5d.herokuapp.com/
 
 ## Deployment Versions
 <h3 align="center">Desktop</h3>
-<!-- <div align="center">
-    <img src="./public/images/SignInPage.png" alt="Image of the desktop sign in page" />
-</div> -->
+<div align="center">
+    <img src="./public/images/Desktop.png" alt="Image of the desktop sign in page" />
+</div>
 
 <h3 align="center">Mobile</h3>
-<!-- <div align="center">
-    <img src="./public/images/mobileIndex.png" alt="Image of the mobile welcome page" />
-    <img src="./public/images/mobileShow.png" alt="Image of the mobile show page" />
-</div> -->
+<div align="center">
+    <img src="./public/images/Mobile-dasboard.png" alt="Image of the mobile welcome page" />
+    <img src="./public/images/mobile.png" alt="Image of the mobile add playground page" />
+</div>
 
 ## Planning Tools
 
 <h3 align="center">ERD</h3>
 
-<!-- ![ERD](./public/images/ERD.png) -->
+![ERD](./public/images/ERD.png)
 
 
 <h3 align="center">Wireframe</h3>
 
-<!-- ![Wireframe](./public/images/Wireframe.png) -->
+![Wireframe](./public/images/Wireframe.png)
 
 ## Attributions
 GoggleMaps and GooglePlaces API's
