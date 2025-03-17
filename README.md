@@ -20,7 +20,7 @@ https://the-craft-beer-collective-30d7183bcd5d.herokuapp.com/
 
 <h3 align="center">Mobile</h3>
 <div align="center">
-    <img src="./public/images/Mobile-dasboard.png" alt="Image of the mobile welcome page" />
+    <img src="./public/images/Mobile-dashboard.png" alt="Image of the mobile welcome page" />
     <img src="./public/images/mobile.png" alt="Image of the mobile add playground page" />
 </div>
 
