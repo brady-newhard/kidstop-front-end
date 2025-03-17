@@ -63,7 +63,7 @@ const PlaygroundDetails = (props) => {
                     )}
                 </header>
             </section>
-            
+
             {/* Description */}
             {/* {playground.description && (
                         <div>
@@ -87,8 +87,8 @@ const PlaygroundDetails = (props) => {
                 <p>{playground.comments}</p>
             </section> */}
             <section>
-                <CommentForm handleAddComment={handleAddComment} />
                 <h2>Comments</h2>
+                <CommentForm handleAddComment={handleAddComment} />
                 {(!playground.comments || !playground.comments.length) && <p>There are no comments.</p>}
                 {playground.comments && playground.comments.map((comment) => (
                     <article key={comment._id}>
@@ -100,18 +100,19 @@ const PlaygroundDetails = (props) => {
                                         ${new Date(comment.createdAt).toLocaleDateString()}`}
                                     </p>
                                     <p>{comment.text}</p>
-                                </> 
-                            )}                           
+                                </>
+                            )}
                             {user && comment.author && comment.author._id === user._id && (
                                 <>
                                     <Link to={`/playgrounds/${playgroundId}/comments/${comment._id}/edit`}>Edit</Link>
                                     <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
                                 </>
                             )}
-                        </header>                        
+                        </header>
+                        
                     </article>
                 ))}
-            </section>            
+            </section>
         </main>
     );
 };
