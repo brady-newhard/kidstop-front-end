@@ -79,21 +79,21 @@ html, body, #root {
   font-weight: 600;
   text-align: center;
   text-decoration: none;
-  background-color: #FFC107; /* Yellow buttons */
-  color: #0D47A1; /* Dark blue text */
+  background-color: #1E88E5; /* Changed from #FFC107 (yellow) to #1E88E5 (blue) */
+  color: #FFFFFF; /* Changed from #0D47A1 to white for better contrast */
   border: none;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
   min-height: 44px;
   min-width: 44px;
-  box-shadow: 0 4px 0 #FF8F00; /* Darker yellow shadow */
+  box-shadow: 0 4px 0 #0D47A1; /* Changed from #FF8F00 to #0D47A1 (darker blue) */
 }
 
 .theme-button:hover, .theme-button:active {
-  background-color: #FFD54F; /* Lighter yellow on hover */
+  background-color: #42A5F5; /* Changed from #FFD54F to #42A5F5 (lighter blue) */
   transform: translateY(2px);
-  box-shadow: 0 2px 0 #FF8F00;
+  box-shadow: 0 2px 0 #0D47A1; /* Changed from #FF8F00 to #0D47A1 */
 }
 
 /* Responsive styles */
