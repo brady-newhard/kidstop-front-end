@@ -26,7 +26,7 @@ https://the-craft-beer-collective-30d7183bcd5d.herokuapp.com/
 
 ## Planning Tools
 **[Trello Board](https://trello.com/invite/b/67ce6f030054d892a7086735/ATTI46aadff10dd3dcccae6f7826baa630140C1CAB89/Unit%203%20Project%20-%20KidStop)**  
-**GitHub:** [Back-end Repo](https://github.com/brady-newhard/craft-beer-collective)  
+**GitHub:** [Back-end Repo](https://github.com/brady-newhard/kidstop-back-end)  
 
 <!-- <h3 align="center">ERD</h3>
 
