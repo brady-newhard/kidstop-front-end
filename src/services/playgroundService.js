@@ -4,6 +4,7 @@ const index = async () => {
     try {
       const res = await fetch(BASE_URL, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        credentials: 'include',
       });
       return res.json();
     } catch (error) {
@@ -15,6 +16,7 @@ const index = async () => {
     try {
         const res = await fetch(`${BASE_URL}/${playgroundId}`, {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+            credentials: 'include',
         });
         return res.json();
     } catch (error) {
@@ -31,6 +33,7 @@ const index = async () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(playgroundFormData),
+        credentials: 'include',
       });
       return res.json();
     } catch (error) {
@@ -47,6 +50,7 @@ const index = async () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(commentFormData),
+        credentials: 'include',
       });
       return res.json();
     } catch (error) {
@@ -59,6 +63,7 @@ const index = async () => {
       const res = await fetch(`${BASE_URL}/${playgroundId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        credentials: 'include',
       });
       return res.json();
     } catch (error) {
@@ -75,6 +80,7 @@ const index = async () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(playgroundFormData),
+        credentials: 'include',
       });
       return res.json();
     } catch (error) {
@@ -87,6 +93,7 @@ const index = async () => {
       const res = await fetch(`${BASE_URL}/${playgroundId}/comments/${commentId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        credentials: 'include',
       });
       return res.json();
     } catch (error) {
@@ -103,6 +110,7 @@ const index = async () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(commentFormData),
+        credentials: 'include',
       });
       return res.json();
     } catch (error) {

@@ -4,6 +4,7 @@ const index = async () => {
   try {
     const res = await fetch(BASE_URL, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      credentials: 'include',
     });
 
     const data = await res.json();
