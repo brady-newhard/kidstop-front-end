@@ -8,9 +8,9 @@
 Families can effortlessly discover and explore nearby parks, view detailed reviews, and even add their own favorite spots. Users have the opportunity to rate parks, share valuable feedback, and interact through comments, creating a dynamic community resource.
 
 Whether you're on a family road trip or just exploring your neighborhood, KidStop ensures playtime is always just around the corner! You can start your journey here:<p>
-<!-- <p align="center">
-https://the-craft-beer-collective-30d7183bcd5d.herokuapp.com/
-</p> -->
+<p align="center">
+https://kidstop.netlify.app/
+</p>
 
 ## Deployment Versions
 <h3 align="center">Desktop</h3>
